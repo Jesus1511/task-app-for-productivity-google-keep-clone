@@ -1,0 +1,100 @@
+import nodemailer from 'nodemailer'
+
+export async function sendConfirmerEmail (email, _id) {
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+         auth: {
+             user: 'productivityappreal@gmail.com',
+             pass: 'qikr qwmp ngaf rbba'
+         }
+     });
+ 
+     const mailOptions = {
+         from: 'productivityappreal@gmail.com',
+         to: email,
+         subject: 'Confirmación de Registro',
+         html: createHTML(_id)
+         
+     };
+
+     const info = await transporter.sendMail(mailOptions)
+
+     console.log(info.messageId)
+}
+
+function createHTML (id) {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>confirm email</title>
+        <style>
+            html {
+                background-color: rgb(232, 232, 232);
+            }
+    
+            *{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+    
+            h1{
+                text-align: center;
+            }
+    
+            .elDiv {
+                background-color: #6f6f6f;
+                width: 300px;
+                height: 3px;
+                margin: auto;
+            }
+    
+            svg {
+                width: 170px;
+                height: auto;
+                display: block;
+                margin: auto;
+            }
+    
+            .elP {
+                color: #6f6f6f;
+                text-align: center;
+                display: block;
+                width: 500px;
+                margin: 20px auto;
+                margin-bottom: 15px;
+            }
+    
+            .flexible {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+    
+            a {
+                margin-left: 5px;
+            }
+    
+    
+        </style>
+    
+    </head>
+    <body>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
+                <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+            </svg>
+            <h1>Verify Your Email</h1>
+            <div class="elDiv"></div>
+            <p class="elP">Please verify your email address by clicking the link we sent you after signing up for the productivity app. This is important to ensure the security of your account</p>
+            <div class="flexible">
+                <p>if you tried to sing the account,</p>
+                <a href="http://localhost:3000/api/confirmRegister/${id}"> click here</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    `
+}

@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    background-color: #2a2c2f;
+}
+
+*{
+    color: white;
+}
+
+.pp {
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    white-space: pre-line;
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 2px;
+    border: 1px solid #999;
+}
+
+.checkbox::before {
+    content: "✓";
+    position: relative;
+    left: 2px;
+    bottom: 6.5px;
+    font-size: 14px;
+    color: #ffffff;
+    visibility: hidden;
+  }
+
+  .checkbox:checked::before{
+    visibility: visible;
+  }
+
+.checkbox:checked{
+    background-color: #32aaff;
+}
+
+.scrol {
+    scrollbar-color: #8e8e8e transparent;
+    scroll-behavior: smooth;
+}
+
+
+.container {
+    column-gap: 0px;
+    margin: auto;
+}
+
+.mansory-item {
+    break-inside: avoid;
+    box-sizing: border-box;
+}
+
+@media (min-width: 576px ) {
+    .container {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 768px ) {
+    .container {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px ) {
+    .container {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1200px ) {
+    .container {
+        column-count: 4;
+    }
+}

@@ -1,0 +1,92 @@
+
+POST http://localhost:3000/api/folders/create
+Content-Type: application/json
+
+{
+    "title": "folder for proves"
+}
+
+###
+
+GET http://localhost:3000/api/folders/tasks
+
+###
+
+PATCH http://localhost:3000/api/folders/update
+Content-Type: application/json
+
+{
+    "title": "folder for proves(edited)",
+    "folder": "6616f58a873db6a4ceae3eca"
+}
+
+###
+
+DELETE http://localhost:3000/api/folders/delete
+Content-Type: application/json
+
+{
+    "folder": "6619bfaca97a0f91068af7d3"
+}
+###
+
+POST http://localhost:3000/api/folders/tasks/create
+Content-Type: application/json
+
+{
+    "title": "task for proves",
+    "content": "content of the task for proves",
+    "folder": "662973f7bfeab9fc609ed33b"
+}
+
+###
+
+POST http://localhost:3000/api/folders/completable/create
+Content-Type: application/json
+
+{
+    "title": "completable task for proves (3)",
+    "subTasks": [{
+        "content":"sexo??",
+        "completada": false
+    }],
+    "folder": "662cf66f586313ed0a726678"
+}
+
+###
+
+PATCH http://localhost:3000/api/folders/completable/update
+Content-Type: application/json
+
+{
+    "title": "ñema en alta menor",
+    "subTasks": [{
+        "title":"sexo??",
+        "completada":true
+    }],
+    "task": "6629841f922e70ab397ae60b",
+    "folder": "662973f7bfeab9fc609ed33b"
+}
+
+###
+
+PATCH http://localhost:3000/api/folders/tasks/update
+Content-Type: application/json
+
+{
+    "title": "task for proves (sexooooo)",
+    "content": "content of the task for proves (sexoooo)",
+    "task": "6629801d39e17657ad1eaa59",
+    "folder": "662973f7bfeab9fc609ed33b"
+}
+
+###
+
+DELETE http://localhost:3000/api/folders/tasks/delete
+Content-Type: application/json
+
+    {
+        "task": "662acbd0909f34254d173565",
+        "folder": "662993b501abdc48e8b4128c"
+
+    }

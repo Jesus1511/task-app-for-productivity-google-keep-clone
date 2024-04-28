@@ -1,0 +1,51 @@
+###
+
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "email": "pev@gmail.com",
+    "password": "pepitoPassword"
+}
+
+###
+
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "username": "Jesus",
+    "email": "jdzc1511@gmail.com",
+    "password": "12345678910"
+}
+
+###
+
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "email": "jdzc1511@gmail.com",
+    "password": "12345678910"
+}
+
+###
+
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "email": "pev@gmail.com",
+    "password": "pepitoPassword"
+}
+
+###
+POST http://localhost:3000/api/logout
+
+###
+
+GET http://localhost:3000/api/profile
+
+###
+
+DELETE http://localhost:3000/api/delete
